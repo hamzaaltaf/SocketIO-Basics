@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags always come first -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title></title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+  <!-- jQuery first, then Bootstrap JS. -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+  <script src="js/app.js"></script>
+  <h1>This is node Js client</h1>
+  <input type="text" id="sender"></input>
+  <button class="btn btn-primary" id="send">Send</button>
+  <div id="logger"></div>
+  <script>
+    var socketio=io();
+    $("#send").on('click',function(){
+      var val = $("#sender").val();
+      console.log('inside click');
+      socketio.emit('message',val);
+    });
+
+  </script>
+</body>
+
+</html>
